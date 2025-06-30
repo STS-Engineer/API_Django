@@ -6,8 +6,6 @@ A Django REST API for managing user data with PostgreSQL database integration.
 
 - **GET API**: Retrieve all users from the database
 - **POST API**: Create new users in the database
-- PostgreSQL connection with connection pooling
-- JSON response format
 
 ## Installation
 
@@ -28,9 +26,7 @@ python manage.py runserver
 
 ### 1. GET Users - Retrieve All Users
 
-**Endpoint:** `GET /dbinfo/tables/`
-
-**Description:** Retrieves all users from the avo_users table.
+**Endpoint:** `GET http://127.0.0.1:8000/dbinfo/tables/`
 
 **Response Example:**
 ```json
@@ -54,14 +50,9 @@ python manage.py runserver
 }
 ```
 
-**cURL Example:**
-```bash
-curl -X GET http://127.0.0.1:8000/dbinfo/tables/
-```
-
 ### 2. POST Users - Create New User
 
-**Endpoint:** `POST /dbinfo/users/`
+**Endpoint:** `POST http://127.0.0.1:8000/dbinfo/users/`
 
 **Description:** Creates a new user in the avo_users table.
 
@@ -75,31 +66,6 @@ curl -X GET http://127.0.0.1:8000/dbinfo/tables/
 }
 ```
 
-**Response Example:**
-```json
-{
-  "message": "User created successfully",
-  "user": {
-    "id": 4,
-    "user_name": "John Doe",
-    "email": "john.doe@avocarbon.com",
-    "poste": "Software Developer",
-    "plant": "STS"
-  }
-}
-```
-
-**cURL Example:**
-```bash
-curl -X POST http://127.0.0.1:8000/dbinfo/users/ \
-  -H "Content-Type: application/json" \
-  -d '{
-    "user_name": "John Doe",
-    "email": "john.doe@avocarbon.com",
-    "poste": "Software Developer",
-    "plant": "STS"
-  }'
-```
 
 ## Project Structure
 
